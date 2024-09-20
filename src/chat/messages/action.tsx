@@ -8,9 +8,17 @@ export default class Action extends MessageType {
         const { message } = props;
 
         const buttons = message.actions?.map((action: IAction) => {
-            return <div class="btn" onClick={() => this.performAction(action)}>
-                {action.text}
-            </div>;
+            const renderImage = action.image_url != "";
+
+            return (
+                <div>
+                    {renderImage && <div><img src={action.image_url} /> </div>}
+                    <div class="btn" onClick={() => this.performAction(action)}>
+                        {action.text}
+                    </div>
+                </div>
+            );
+
         });
 
         return (
@@ -24,6 +32,9 @@ export default class Action extends MessageType {
     }
 
     performAction(action: IAction) {
+        if (action.url != "") {
+            window.open(action.url, "_blank", "noreferrer");
+        }
         const isActionRespondVisible = action?.additional?.isActionRespondVisible;
         if (isActionRespondVisible) {
             this.props.messageHandler({

@@ -67,7 +67,7 @@ export default class MessageHolder extends Component<IMessageHolderProps, any> {
 
         return (
             <li data-message-id={message.id} className={message.from} style={styles}>
-                    { (message.type as string) === 'typing_indicator' 
+                    { (message.type as string) === 'typing_indicator'
                         ? (<MessageComponent onVisibilityChange={this.messageVisibilityChange}
                             message={message}
                             timeout={calculatedTimeout}
@@ -94,7 +94,7 @@ export default class MessageHolder extends Component<IMessageHolderProps, any> {
                     }
             </li>
         );
-        
+
     }
 
 }

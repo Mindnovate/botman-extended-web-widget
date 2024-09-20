@@ -45,7 +45,7 @@ export interface IAttachment {
 }
 
 export interface IElement {
-    title : string,
+    title: string,
     image_url: string,
     item_url: string,
     subtitle: string,
@@ -63,6 +63,8 @@ export interface IButton {
 
 export interface IAction {
     text: string,
+    image_url: string,
+    url: string,
     value: string,
     additional?: any,
 }
