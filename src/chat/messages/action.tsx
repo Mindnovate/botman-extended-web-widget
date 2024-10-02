@@ -32,7 +32,7 @@ export default class Action extends MessageType {
     }
 
     performAction(action: IAction) {
-        if (action.url != "") {
+        if (action.url != "" && action.url != null) {
             window.open(action.url, "_blank", "noreferrer");
         }
         const isActionRespondVisible = action?.additional?.isActionRespondVisible;
