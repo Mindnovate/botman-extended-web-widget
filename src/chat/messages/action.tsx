@@ -8,7 +8,7 @@ export default class Action extends MessageType {
         const { message } = props;
 
         const buttons = message.actions?.map((action: IAction) => {
-            const renderImage = action.image_url != "";
+            const renderImage = action.image_url != "" && action.image_url != null;
 
             return (
                 <div>
